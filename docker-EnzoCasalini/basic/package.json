@@ -1,0 +1,14 @@
+{
+    "name": "docker_web_app",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "author": "Enzo Casalini",
+    "main": "run.js",
+    "scripts": {
+        "start": "node run.js"
+    },
+    "dependencies": {
+        "express": "^4.16.1",
+        "express.js": "^1.0.0"
+    }
+}
