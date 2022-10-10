@@ -9,11 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-22.04
 
-    strategy:
-      matrix:
-        image:
-          - docker-EnzoCasalini/basic
-
     steps:
       - uses: actions/checkout@v2
         with:
@@ -35,10 +30,10 @@ jobs:
           else
             IMAGE_TAG=$VERSION
           fi
-          echo "DOCKER_IMAGE=${{ secrets.DOCKER_USER }}/${{ matrix['image'] }}:$IMAGE_TAG" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE=${{ secrets.DOCKER_USER }}/docker-EnzoCasalini/basic:$IMAGE_TAG" >> $GITHUB_ENV
       - name: Build docker image
         run: >-
-          docker build ${{ matrix['image'] }}
+          docker build docker-EnzoCasalini/basic
           --label "org.label-schema.vcs-ref=$GITHUB_SHA"
           --tag $DOCKER_IMAGE
       - run: docker push $DOCKER_IMAGE
