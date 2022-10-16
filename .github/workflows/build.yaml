@@ -30,10 +30,10 @@ jobs:
           else
             IMAGE_TAG=$VERSION
           fi
-          echo "DOCKER_IMAGE=${{ secrets.DOCKER_USER }}/docker-EnzoCasalini:$IMAGE_TAG" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE=${{ secrets.DOCKER_USER }}/docker-enzocasalini:$IMAGE_TAG" >> $GITHUB_ENV
       - name: Build docker image
         run: >-
-          docker build docker-EnzoCasalini/basic
+          docker build docker-enzocasalini/basic
           --label "org.label-schema.vcs-ref=$GITHUB_SHA"
           --tag $DOCKER_IMAGE
       - run: docker push $DOCKER_IMAGE
