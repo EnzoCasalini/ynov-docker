@@ -26,5 +26,4 @@ WORKDIR /home/ynov
 COPY src .
 COPY --from=builder /usr/local/src/.venv /home/ynov/.venv
 
-ENTRYPOINT ["./.venv/bin/python"]
-CMD ["run.py"]
+ENTRYPOINT ["./.venv/bin/python", "run.py"]
